@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+ 
+    <meta name="description"
+     
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="images/favicon.ico">
+ 
+    <script src=" /ban1.0.2.js"></script>
+ 
+    <style type="text/css">
+        .mlcontent { padding: 20px; }
+        .site-content img { max-width: 95% }
+        .layui-card { border: 1px solid rgb(128 128 128 / 0.45); border-radius: 5px; padding: 3px; }
+        .layui-card p { font-size: 16px; }
+        .qdzone { margin: 3px auto; }
+        .qdzone .questio { font-weight: bolder; }
+        .layui-tree li { line-height: 40px; padding: 5px 10px; }
+        .layui-tree li.layui-this { background-color: #099d5b; color: #fff; }
+        .layui-tree a cite { font-size: 18px; font-weight: bolder; }
+        .segment p { margin: 5px; font-size: 20px }
+    </style>
+</head>
+<body class="">
+
+    <div id="app">
+        <input type="text" b-m="title.msg">
+        <input type="text" b-m="title.msg2">
+        <input type="button" b-e:click="P.Msg(1,'assa3')" value="click">
+        <input type="button" b-e:dblclick="P.Msg(0,'dbclickQ')" value="dbclick">
+        {{title.msg}}
+        测试2
+
+        {{title.msg2}}
+
+        {{name}}
+        name:  <span b-m="info.name"></span>
+        age:<span b-m="info.age"></span>
+        <hr />
+        {{info.name}}
+        <h2 b-e:click="P.A2()">{{info.age}}</h2>
+        <table class="layui-table">
+            <thead><tr><th>n</th><th>a</th></tr></thead>
+            <tbody>
+                <tr b-for="(it,a) in lst" >
+                    <td>{{it.n}}</td>
+                    <td>{{it.a}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+
+        var P = {
+            Msg: (a, v) => {
+                layer.msg(a + "-" + v + "-" + App.$data.title.msg);
+            },
+            A2: () => {
+                layer.msg(23);
+            }
+        }
+        let App = new Ban({
+            // el: "#app",
+            el: "#app",
+            data: {
+                info: { name: "lity", age: 20 },
+                lst: [
+                    { n: "ljx1", a: 20 },
+                    { n: "lj2x2", a: 30 },
+                    { n: "lj2x3", a: 31 },
+                    { n: "lj22x4", a: 32 }
+                ],
+                title: {
+                    msg: "MVVM原理编译",
+                    msg2: "我是测试的"
+                },
+            }
+        })
+
+
+    </script>
+</body>
+</html>
