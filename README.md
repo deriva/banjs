@@ -16,15 +16,12 @@ Vue.js实现的原理就是采用的访问器监听，所以这里也采用访�
 
 demo:
 
-  <table class="layui-table">
+      <table class="layui-table">
                     <tr>
                         <th style="width:5%">客户</th>
                         <td style="width:20%">
                             <span>{{Mb.ID}}</span>
-                            <span>{{Mb.NickName}}</span>
-                            <span>{{Mb.Account}}</span>
-                            <span>{{Mb.CompanyName}}</span>
-                            <span>{{Mb.PayType}}</span>
+                            <span>{{Mb.NickName}}</span> 
                         </td>
                         <th style="width:5%">订单编号</th>
                         <td style="width:20%">{{Info.OrderNo}}</td>
@@ -51,7 +48,7 @@ demo:
                 </table>
 
     <script type="text/javascript">
-  var ban = new Ban({
+      var ban = new Ban({
         data: {
             Search: {
                 ID: LP.GetQueryString("id")
