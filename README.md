@@ -16,61 +16,50 @@ Vue.js实现的原理就是采用的访问器监听，所以这里也采用访�
 
 demo:
 
-<div id="app">
-        <input type="text" b-m="title.msg">
-        <input type="text" b-m="title.msg2">
-        <input type="button" b-e:click="P.Msg(1,'assa3')" value="click">
-        <input type="button" b-e:dblclick="P.Msg(0,'dbclickQ')" value="dbclick">
-        {{title.msg}}
-        测试2
+  <table class="layui-table">
+                    <tr>
+                        <th style="width:5%">客户</th>
+                        <td style="width:20%">
+                            <span>{{Mb.ID}}</span>
+                            <span>{{Mb.NickName}}</span>
+                            <span>{{Mb.Account}}</span>
+                            <span>{{Mb.CompanyName}}</span>
+                            <span>{{Mb.PayType}}</span>
+                        </td>
+                        <th style="width:5%">订单编号</th>
+                        <td style="width:20%">{{Info.OrderNo}}</td>
+                        <th style="width:5%">状态</th>
+                        <td style="width:20%"> 
+                            <span class="" bf-class="Info.StatusIndex">
+                                {{OrderData.Info.StatusName}}
+                            </span>
+                        </td>
+                        <th style="width:5%">创建时间</th>
+                        <td style="width:20%">{{Info.CreatedTime}}</td>
+                    </tr>
+                    <tr>
+                        <th>支付方式</th>
+                        <td> {{Info.PayType}}</td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                 
+                </table>
 
-        {{title.msg2}}
-
-        {{name}}
-        name:  <span b-m="info.name"></span>
-        age:<span b-m="info.age"></span>
-        <hr />
-        {{info.name}}
-        <h2 b-e:click="P.A2()">{{info.age}}</h2>
-        <table class="layui-table">
-            <thead><tr><th>n</th><th>a</th></tr></thead>
-            <tbody>
-                <tr b-for="(it,a) in lst" >
-                    <td>{{it.n}}</td>
-                    <td>{{it.a}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
     <script type="text/javascript">
-
-        var P = {
-            Msg: (a, v) => {
-                layer.msg(a + "-" + v + "-" + App.$data.title.msg);
+  var ban = new Ban({
+        data: {
+            Search: {
+                ID: LP.GetQueryString("id")
             },
-            A2: () => {
-                layer.msg(23);
-            }
+           Info: { Id: 0, Status: 0, InnerRemark: "", Note: "", StatusName: "", StatusIndex:"tag0" },//订单主信息
+         
         }
-        let App = new Ban({
-            // el: "#app",
-            el: "#app",
-            data: {
-                info: { name: "lity", age: 20 },
-                lst: [
-                    { n: "ljx1", a: 20 },
-                    { n: "lj2x2", a: 30 },
-                    { n: "lj2x3", a: 31 },
-                    { n: "lj22x4", a: 32 }
-                ],
-                title: {
-                    msg: "MVVM原理编译",
-                    msg2: "我是测试的"
-                },
-            }
-        })
-
-
+    });
     </script>
     
     
